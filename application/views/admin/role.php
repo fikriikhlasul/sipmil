@@ -8,7 +8,9 @@
         <div class="col-lg-6">
             <?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
-            <?= $this->session->flashdata('flash'); ?>
+              <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
+                <?php if ($this->session->flashdata('flash')) : ?>
+                <?php endif; ?>
 
             <a href="" class="btn btn-info mb-3" data-toggle="modal" data-target="#newRoleModal">Add New Role</a>
 
@@ -29,7 +31,7 @@
                         <td>
                             <a href="<?= base_url('admin/roleaccess/') . $r['id']; ?>" class="badge badge-warning">access</a>
                             <a href="<?= base_url('admin/editrole/') . $r['id']; ?>" class="badge badge-success">edit</a>
-                            <a href="<?= base_url('admin/deleterole/') . $r['id']; ?>" class="badge badge-danger">delete</a>
+                            <a href="<?= base_url('admin/deleterole/') . $r['id']; ?>" class="badge badge-danger tombol-hapusrole">delete</a>
                         </td>
                     </tr>
                     <?php $i++; ?>

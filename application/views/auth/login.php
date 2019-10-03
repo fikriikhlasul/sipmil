@@ -15,7 +15,10 @@
                                     <h1 class="h4 text-gray-900 mb-4">Login Page</h1>
                                 </div>
 
-                                <?= $this->session->flashdata('message'); ?>
+                              <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
+                                 <?php if ($this->session->flashdata('flash')) : ?>
+                                     <?php endif; ?>
+
 
                                 <form class="user" method="post" action="<?= base_url('auth'); ?>">
                                     <div class="form-group">
@@ -31,9 +34,9 @@
                                     </button>
                                 </form>
                                 <hr>
-                                <div class="text-center">
+                                <!-- <div class="text-center">
                                     <a class="small" href="<?= base_url('auth/forgotpassword'); ?>">Forgot Password?</a>
-                                </div>
+                                </div> -->
                                 <div class="text-center">
                                     <a class="small" href="<?= base_url('auth/registration'); ?>">Create an Account!</a>
                                 </div>

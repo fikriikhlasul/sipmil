@@ -1,3 +1,7 @@
+<?php 
+$this->load->model('Invoice_model');
+$jml_invoice =$this->Invoice_model->total_rows();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +21,7 @@
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/'); ?>DataTables/datatables.min.css"/>
 
 </head>
 

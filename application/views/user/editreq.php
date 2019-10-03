@@ -7,7 +7,9 @@
 
     <div class="row">
         <div class="col-lg-6">
-            <?= $this->session->flashdata('flash'); ?>
+           <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
+    <?php if ($this->session->flashdata('flash')) : ?>
+    <?php endif; ?>
             <form action="" method="post">
             	<input type="hidden" name="id" value="<?= $editreq['id']; ?>">
                 <div class="form-group">

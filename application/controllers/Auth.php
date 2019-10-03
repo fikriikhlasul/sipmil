@@ -214,62 +214,62 @@ class Auth extends CI_Controller
     }
 
 
-    public function forgotPassword()
-    {
-        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+    // public function forgotPassword()
+    // {
+    //     $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 
-        if ($this->form_validation->run() == false) {
-            $data['title'] = 'Forgot Password';
-            $this->load->view('templates/auth_header', $data);
-            $this->load->view('auth/forgot-password');
-            $this->load->view('templates/auth_footer');
-        } else {
-            $email = $this->input->post('email');
-            $user = $this->db->get_where('user', ['email' => $email, 'is_active' => 1])->row_array();
+    //     if ($this->form_validation->run() == false) {
+    //         $data['title'] = 'Forgot Password';
+    //         $this->load->view('templates/auth_header', $data);
+    //         $this->load->view('auth/forgot-password');
+    //         $this->load->view('templates/auth_footer');
+    //     } else {
+    //         $email = $this->input->post('email');
+    //         $user = $this->db->get_where('user', ['email' => $email, 'is_active' => 1])->row_array();
 
-            if ($user) {
-                $token = base64_encode(random_bytes(32));
-                $user_token = [
-                    'email' => $email,
-                    'token' => $token,
-                    'date_created' => time()
-                ];
+    //         if ($user) {
+    //             $token = base64_encode(random_bytes(32));
+    //             $user_token = [
+    //                 'email' => $email,
+    //                 'token' => $token,
+    //                 'date_created' => time()
+    //             ];
 
-                $this->db->insert('user_token', $user_token);
-                $this->_sendEmail($token, 'forgot');
+    //             $this->db->insert('user_token', $user_token);
+    //             $this->_sendEmail($token, 'forgot');
 
-                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Please check your email to reset your password!</div>');
-                redirect('auth/forgotpassword');
-            } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered or activated!</div>');
-                redirect('auth/forgotpassword');
-            }
-        }
-    }
+    //             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Please check your email to reset your password!</div>');
+    //             redirect('auth/forgotpassword');
+    //         } else {
+    //             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered or activated!</div>');
+    //             redirect('auth/forgotpassword');
+    //         }
+    //     }
+    // }
 
 
-    public function resetPassword()
-    {
-        $email = $this->input->get('email');
-        $token = $this->input->get('token');
+    // public function resetPassword()
+    // {
+    //     $email = $this->input->get('email');
+    //     $token = $this->input->get('token');
 
-        $user = $this->db->get_where('user', ['email' => $email])->row_array();
+    //     $user = $this->db->get_where('user', ['email' => $email])->row_array();
 
-        if ($user) {
-            $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
+    //     if ($user) {
+    //         $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
 
-            if ($user_token) {
-                $this->session->set_userdata('reset_email', $email);
-                $this->changePassword();
-            } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Reset password failed! Wrong token.</div>');
-                redirect('auth');
-            }
-        } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Reset password failed! Wrong email.</div>');
-            redirect('auth');
-        }
-    }
+    //         if ($user_token) {
+    //             $this->session->set_userdata('reset_email', $email);
+    //             $this->changePassword();
+    //         } else {
+    //             $this->session->set_flashdata('flash', 'Reset password failed! Wrong token.');
+    //             redirect('auth');
+    //         }
+    //     } else {
+    //         $this->session->set_flashdata('flash', 'Reset password failed! Wrong email.');
+    //         redirect('auth');
+    //     }
+    // }
 
 
     public function changePassword()
@@ -298,7 +298,7 @@ class Auth extends CI_Controller
 
             $this->db->delete('user_token', ['email' => $email]);
 
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password has been changed! Please login.</div>');
+            $this->session->set_flashdata('flash', 'Password has been changed! Please login.');
             redirect('auth');
         }
     }

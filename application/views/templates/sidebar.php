@@ -2,7 +2,7 @@
         <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url();?>">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-car"></i>
                 </div>
@@ -61,7 +61,7 @@
             <?php endforeach; ?>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
+                <a class="nav-link tombol-logout" href="<?= base_url('auth/logout'); ?>">
                     <i class="fas fa-fw fa-sign-out-alt"></i>
                     <span>Logout</span></a>
             </li>

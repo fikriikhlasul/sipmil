@@ -7,6 +7,8 @@
 
     <div class="row">
         <div class="col-lg-8">
+        
+
 
             <?= form_open_multipart('user/edit'); ?>
             <div class="form-group row">

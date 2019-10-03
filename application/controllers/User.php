@@ -49,6 +49,7 @@ class User extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $data = [
+                'user_id' => $this->input->post('user_id'),
                 'user_email' => $this->input->post('user_email'),
                 'nama_req' => $this->input->post('nama_req'),
                 'jenis_trans' => $this->input->post('jenis_trans'),
@@ -62,10 +63,11 @@ class User extends CI_Controller
                 'jam_kembali' => $this->input->post('jam_kembali'),
                 'kode_proyek' => $this->input->post('kode_proyek'),
                 'status_req' => 'Waiting Approval',
-                'date_created' => time()
+                'date_created' => time(),
+                'color' => 'blue'
             ];
             $this->db->insert('user_req_transport', $data);
-            $this->session->set_flashdata('flash', '<div class="alert alert-success" role="alert">New Request added!</div>');
+            $this->session->set_flashdata('flash', 'New Request added!');
             redirect('user/reqtransport');
         }
     }
@@ -152,14 +154,14 @@ class User extends CI_Controller
             ];
             $this->db->where('id', $this->input->post('id'));
              $this->db->update('user_req_transport', $data);
-            $this->session->set_flashdata('flash', '<div class="alert alert-success" role="alert">Request Changed!</div>');
+            $this->session->set_flashdata('flash', 'Request Changed!');
             redirect('user/reqtransport');
         }
     }
     public function deletereq($id)
     {
         $this->db->delete('user_req_transport', ['id' => $id]);
-        $this->session->set_flashdata('flash', '<div class="alert alert-success" role="alert"> Request Deleted!</div>');
+        $this->session->set_flashdata('flash', ' Request Deleted!');
         redirect('user/reqtransport');
     }
 
@@ -167,7 +169,7 @@ class User extends CI_Controller
     {
         $data['title'] = 'Edit Profile';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
+        $data['userx'] = $this->db->get_where('user_req_transport', ['user_email' => $this->session->userdata('email')])->row_array();
         $this->form_validation->set_rules('name', 'Full Name', 'required|trim');
 
         if ($this->form_validation->run() == false) {
@@ -205,8 +207,11 @@ class User extends CI_Controller
             $this->db->set('name', $name);
             $this->db->where('email', $email);
             $this->db->update('user');
+            $this->db->set('nama_req', $name);
+            $this->db->where('user_email', $email);
+            $this->db->update('user_req_transport');
 
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your profile has been updated!</div>');
+            $this->session->set_flashdata('flash', 'Your profile has been updated!');
             redirect('user');
         }
     }
@@ -245,7 +250,7 @@ class User extends CI_Controller
                     $this->db->where('email', $this->session->userdata('email'));
                     $this->db->update('user');
 
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password changed!</div>');
+                    $this->session->set_flashdata('flash', 'Password changed!');
                     redirect('user/changepassword');
                 }
             }

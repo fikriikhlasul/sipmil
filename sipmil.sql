@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2019 at 01:17 AM
+-- Generation Time: Oct 03, 2019 at 02:32 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -46,8 +46,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `bagian`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (1, 'admin', 'Admin', 'admin@gmail.com', 'One-Piece-Episode-904-Kiminime.jpg', '$2y$10$hYF12POHVaiEF3uaOeMYNuuHXAaQTAkxhd4q5gH.ZIytzgTfUHaeO', 1, 1, 1569783602),
-(13, 'fikri', 'Kasum', 'fikri@gmail.com', 'default.jpg', '$2y$10$7LrgeAnIageZTcxo4dWP2eFgw3Eq/ox/RBqROPJ7DrUa.NTLAeFby', 2, 1, 1569919522),
-(14, 'pikuri', 'Kasum', 'pikuri@gmail.com', 'default.jpg', '$2y$10$lyMS.fwyZ08brr066Fr.K.kZ92YCJqYj4hvUofgjL7u4pnj.iPr8C', 2, 1, 1569989797);
+(13, 'fikri', 'Kasum', 'fikri@gmail.com', 'default.jpg', '$2y$10$7LrgeAnIageZTcxo4dWP2eFgw3Eq/ox/RBqROPJ7DrUa.NTLAeFby', 2, 1, 1569919522);
 
 -- --------------------------------------------------------
 
@@ -114,6 +113,7 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 
 CREATE TABLE `user_req_transport` (
   `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `user_email` varchar(128) NOT NULL,
   `nama_req` varchar(128) NOT NULL,
   `jenis_trans` varchar(128) NOT NULL,
@@ -134,12 +134,12 @@ CREATE TABLE `user_req_transport` (
 -- Dumping data for table `user_req_transport`
 --
 
-INSERT INTO `user_req_transport` (`id`, `user_email`, `nama_req`, `jenis_trans`, `tujuan_trans`, `keperluan_trans`, `req_dari`, `req_ke`, `tanggal_pinjam`, `jam_pinjam`, `tanggal_kembali`, `jam_kembali`, `kode_proyek`, `status_req`, `date_created`) VALUES
-(2, 'admin@gmail.com', 'admin', 'Taksi', 'Luar Kota', 'Servicing Products', 'Pekanbaru', 'Medan', '2019-12-30', '09:00:00', '2019-12-30', '16:00:00', 'MDNPKU23', 'Waiting Approval', 1569982937),
-(4, 'fikri@gmail.com', 'fikri', 'Mobil', 'Luar Kota', 'Servicing Product', 'Pekanbaru', 'Medan', '2019-10-01', '11:00:00', '2019-10-01', '17:00:00', 'MDNPKU23', 'Waiting Approval', 1569982937),
-(5, 'admin@gmail.com', 'admin', 'Mobil', 'Luar Kota', 'Servicing Product', 'Pekanbaru', 'Medan', '2019-10-01', '13:00:00', '2019-10-01', '18:00:00', 'MDNPKU23', 'Waiting Approval', 1569982937),
-(6, 'admin@gmail.com', 'admin', 'Bus', 'Luar Kota', 'Servicing Product', 'Pekanbaru', 'Duri', '2019-10-02', '08:00:00', '2019-10-02', '12:59:00', 'PKUDUR12', 'Waiting Approval', 1569982937),
-(7, 'admin@gmail.com', 'admin', 'Mobil', 'Luar Kota', 'Servicing Product', 'Pekanbaru', 'Dumai', '2019-10-02', '09:00:00', '2019-10-02', '12:59:00', 'PKUDUM12', 'Waiting Approval', 1569990765);
+INSERT INTO `user_req_transport` (`id`, `user_id`, `user_email`, `nama_req`, `jenis_trans`, `tujuan_trans`, `keperluan_trans`, `req_dari`, `req_ke`, `tanggal_pinjam`, `jam_pinjam`, `tanggal_kembali`, `jam_kembali`, `kode_proyek`, `status_req`, `date_created`) VALUES
+(2, 1, 'admin@gmail.com', 'admin', 'Taksi', 'Luar Kota', 'Servicing Products', 'Pekanbaru', 'Medan', '2019-12-30', '09:00:00', '2019-12-30', '16:00:00', 'MDNPKU23', 'Waiting Approval', 1569982937),
+(4, 13, 'fikri@gmail.com', 'fikri', 'Mobil', 'Luar Kota', 'Servicing Product', 'Pekanbaru', 'Medan', '2019-10-01', '11:00:00', '2019-10-01', '17:00:00', 'MDNPKU23', 'Waiting Approval', 1569982937),
+(5, 1, 'admin@gmail.com', 'admin', 'Mobil', 'Luar Kota', 'Servicing Product', 'Pekanbaru', 'Medan', '2019-10-01', '13:00:00', '2019-10-01', '18:00:00', 'MDNPKU23', 'Waiting Approval', 1569982937),
+(6, 1, 'admin@gmail.com', 'admin', 'Bus', 'Luar Kota', 'Servicing Product', 'Pekanbaru', 'Duri', '2019-10-02', '08:00:00', '2019-10-02', '12:59:00', 'PKUDUR12', 'Waiting Approval', 1569982937),
+(7, 1, 'admin@gmail.com', 'admin', 'Mobil', 'Luar Kota', 'Servicing Product', 'Pekanbaru', 'Dumai', '2019-10-02', '09:00:00', '2019-10-02', '12:59:00', 'PKUDUM12', 'Waiting Approval', 1569990765);
 
 -- --------------------------------------------------------
 
@@ -189,7 +189,7 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (7, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 'Active'),
 (8, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 'Active'),
 (11, 2, 'Request Transportation', 'user/reqtransport', 'fas fa-car', 'Active'),
-(13, 10, 'Dashboard', 'kordinator', 'fas fa-user-secret', 'Active'),
+(13, 10, 'List User Request', 'kordinator', 'fas fa-user-secret', 'Active'),
 (14, 10, 'Report', 'kordinator/report', 'far fa-chart-bar', 'Active');
 
 -- --------------------------------------------------------

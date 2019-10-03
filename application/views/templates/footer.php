@@ -49,6 +49,38 @@
             <!-- Custom scripts for all pages-->
             <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
 
+             <script src="<?= base_url(); ?>assets/js/sweetalert2.all.min.js"></script>
+             <script src="<?= base_url(); ?>assets/js/myscript.js"></script>
+             <script type="text/javascript" src="<?= base_url(); ?>assets/DataTables/datatables.min.js"></script>
+             <script type="text/javascript">
+                 $(document).ready( function () {
+                    $('#reqtransport').DataTable( {
+                        "processing":true,
+                        // "serverSide":true,
+                        "scrollY":'250px',
+                        dom: 'Bfrtip',
+                         buttons: [
+                        'copy','csv', 'pdf'
+
+                     ] 
+                    });
+                } );
+             </script>
+             <script type="text/javascript">
+                 $(document).ready( function () {
+                    $('#menutbl').DataTable({
+                        "scrollY":'250px'
+                    });
+                } );
+             </script>
+              <script type="text/javascript">
+                 $(document).ready( function () {
+                    $('#tabelreport').DataTable({
+                        "scrollY":'250px'
+                    });
+                } );
+             </script>
+            
             <script>
                 $('.custom-file-input').on('change', function() {
                     let fileName = $(this).val().split('\\').pop();

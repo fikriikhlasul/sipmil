@@ -42,7 +42,7 @@ class Admin extends CI_Controller
                 'role' => $this->input->post('role'),
             ];
             $this->db->insert('user_role', $data);
-            $this->session->set_flashdata('flash', '<div class="alert alert-success" role="alert">New Role Has Been added!</div>');
+            $this->session->set_flashdata('flash', 'New Role Has Been added!');
             redirect('admin/role');
         }
     }
@@ -84,7 +84,7 @@ class Admin extends CI_Controller
             $this->db->delete('user_access_menu', $data);
         }
 
-        $this->session->set_flashdata('flash', '<div class="alert alert-success" role="alert">Access Changed!</div>');
+        $this->session->set_flashdata('flash', 'Access Changed!');
     }
 
     public function editrole($role_id)
@@ -110,7 +110,7 @@ class Admin extends CI_Controller
 
         $this->db->where('id', $this->input->post('id'));
         $this->db->update('user_role', $data);
-            $this->session->set_flashdata('flash', '<div class="alert alert-success" role="alert">Role Name Has Changed!</div>');
+            $this->session->set_flashdata('flash', 'The Role Has Changed!');
             redirect('admin/role');
         }
 
@@ -118,7 +118,7 @@ class Admin extends CI_Controller
       public function deleterole($id)
     {
         $this->db->delete('user_role', ['id' => $id]);
-        $this->session->set_flashdata('flash', '<div class="alert alert-success" role="alert">Role Has Been Deleted!</div>');
+        $this->session->set_flashdata('flash', 'Role Has Been Deleted!');
         redirect('admin/role');
     }
 

@@ -11,47 +11,78 @@ class Kordinator extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Dashboard';
+        $data['title'] = 'User Request List';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['userkor'] = $this->db->get('user')->result_array();
         $data['kordinator'] = $this->db->get_where('user_req_transport', ['user_email' =>  $this->session->userdata('email')])->result_array();
        
 
-        $this->form_validation->set_rules('nama_req', 'Nama', 'required');
-        $this->form_validation->set_rules('jenis_trans', 'Jenis Transportasi', 'required');
-        $this->form_validation->set_rules('tujuan_trans', 'Tujuan Transportasi', 'required');
-        $this->form_validation->set_rules('keperluan_trans', 'Keperluan Transportasi', 'required');
-        $this->form_validation->set_rules('req_dari', 'Dari', 'required');
-        $this->form_validation->set_rules('req_ke', 'Ke', 'required');
-        $this->form_validation->set_rules('tanggal_pinjam', 'Tanggal Pinjam', 'required');
-        $this->form_validation->set_rules('jam_pinjam', 'Jam Pinjam', 'required');
-        $this->form_validation->set_rules('tanggal_kembali', 'Tanggal Kembali', 'required');
-        $this->form_validation->set_rules('jam_kembali', 'Jam Kembali', 'required');
-        $this->form_validation->set_rules('kode_proyek', 'Kode Proyek', 'required');
-
+     
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
             $this->load->view('kordinator/index', $data);
             $this->load->view('templates/footer');
+        } 
+    }
+   public function accreq()
+    {
+        $data['title'] = 'Request Transportation';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        
+        $data['accreq'] = $this->db->get_where('user_req_transport', ['user_email' =>  $this->session->userdata('email')])->row_array();
+       
+
+        $this->form_validation->set_rules('no_polisi', 'No Polisi', 'required');
+        $this->form_validation->set_rules('nama_supir', 'Nama Supir', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('kordinator/accreq', $data);
+            $this->load->view('templates/footer');
         } else {
             $data = [
-                'user_email' => $this->input->post('user_email'),
-                'nama_req' => $this->input->post('nama_req'),
-                'jenis_trans' => $this->input->post('jenis_trans'),
-                'tujuan_trans' => $this->input->post('tujuan_trans'),
-                'keperluan_trans' => $this->input->post('keperluan_trans'),
-                'req_dari' => $this->input->post('req_dari'),
-                'req_ke' => $this->input->post('req_ke'),
-                'tanggal_pinjam' => $this->input->post('tanggal_pinjam'),
-                'jam_pinjam' => $this->input->post('jam_pinjam'),
-                'tanggal_kembali' => $this->input->post('tanggal_kembali'),
-                'jam_kembali' => $this->input->post('jam_kembali'),
-                'kode_proyek' => $this->input->post('kode_proyek'),
-                'status_req' => 'Waiting Approval'
+                'status_req'=> 'Approved',
+                'color'=> 'green',
+                'no_polisi' => $this->input->post('no_polisi'),
+                'nama_supir' => $this->input->post('nama_supir')
             ];
-            $this->db->insert('user_req_transport', $data);
-            $this->session->set_flashdata('flash', '<div class="alert alert-success" role="alert">New Request added!</div>');
+            $this->db->where('id', $this->input->post('id'));
+             $this->db->update('user_req_transport', $data);
+            $this->session->set_flashdata('flash', 'Request Changed!');
             redirect('user/reqtransport');
         }
-    }}
+    }
+    public function rejectreq($id)
+    {       
+        
+         $this->db->set('status_req','Rejected' );
+         $this->db->set('color','red' );
+            $this->db->where('id', $id);
+            $this->db->update('user_req_transport');
+        $this->session->set_flashdata('flash', 'You Rejected The User Request!');
+        redirect('kordinator').$id;
+    }
+
+    public function detailreq($id)
+    {
+        $data['title'] = 'List User Request';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['detailreq'] = $this->db->get_where('user_req_transport', ['user_id' =>  $id])->result_array();
+       
+
+        
+
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('kordinator/detailreq', $data);
+            $this->load->view('templates/footer');
+        } 
+    }
+}

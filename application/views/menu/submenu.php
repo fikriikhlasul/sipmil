@@ -8,41 +8,45 @@
 
     <div class="row">
         <div class="col-lg">
+            <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
+    <?php if ($this->session->flashdata('flash')) : ?>
+    <?php endif; ?>
             <?php if (validation_errors()) : ?>
             <div class="alert alert-danger" role="alert">
                 <?= validation_errors(); ?>
             </div>
             <?php endif; ?>
 
-            <?= $this->session->flashdata('flash'); ?>
+            <?php $this->session->flashdata('flash'); ?>
 
             <a href="" class="btn btn-info mb-3" data-toggle="modal" data-target="#newSubMenuModal">Add New Submenu</a>
 
-            <table class="table table-striped table-bordered data">
+           <div class="data-table-container" style="width: 100%">   
+            <table class="table table-striped table-bordered data-table border-left-info" id="menutbl">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Menu</th>
-                        <th scope="col">Url</th>
-                        <th scope="col">Icon</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" style="text-align: center;">No</th>
+                        <th scope="col" style="text-align: center;">Title</th>
+                        <th scope="col" style="text-align: center;">Menu</th>
+                        <th scope="col" style="text-align: center;">Url</th>
+                        <th scope="col" style="text-align: center;">Icon</th>
+                        <th scope="col" style="text-align: center;">Status</th>
+                        <th scope="col" style="text-align: center;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
                     <?php foreach ($subMenu as $sm) : ?>
                     <tr>
-                        <th scope="row"><?= $i; ?></th>
-                        <td><?= $sm['title']; ?></td>
-                        <td><?= $sm['menu']; ?></td>
-                        <td><?= $sm['url']; ?></td>
-                        <td><?= $sm['icon']; ?></td>
-                        <td><?= $sm['is_active']; ?></td>
-                        <td>
+                        <th scope="row" style="text-align: center;"><?= $i; ?></th>
+                        <td style="text-align: center;"><?= $sm['title']; ?></td>
+                        <td style="text-align: center;"><?= $sm['menu']; ?></td>
+                        <td style="text-align: center;"><?= $sm['url']; ?></td>
+                        <td style="text-align: center;"><?= $sm['icon']; ?></td>
+                        <td style="text-align: center;"><?= $sm['is_active']; ?></td>
+                        <td style="text-align: center;">
                             <a href="<?= base_url('menu/editsub/') . $sm['id']; ?>" class="badge badge-success">edit</a>
-                            <a href="<?= base_url('menu/deletesub/') . $sm['id']; ?>" class="badge badge-danger">delete</a>
+                            <a href="<?= base_url('menu/deletesub/') . $sm['id']; ?>" class="badge badge-danger tombol-hapussub">delete</a>
                         </td>
                     </tr>
                     <?php $i++; ?>

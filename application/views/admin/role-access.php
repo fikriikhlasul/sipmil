@@ -7,7 +7,10 @@
     <div class="row">
         <div class="col-lg-6">
 
-            <?= $this->session->flashdata('message'); ?>
+              <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
+                <?php if ($this->session->flashdata('flash')) : ?>
+                <?php endif; ?>
+
 
             <h5>Role : <?= $role['role']; ?></h5>
 

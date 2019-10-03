@@ -7,7 +7,9 @@
 
     <div class="row">
         <div class="col-lg-6">
-            <?= $this->session->flashdata('message'); ?>
+            <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
+    <?php if ($this->session->flashdata('flash')) : ?>
+    <?php endif; ?>
             <form action="<?= base_url('user/changepassword'); ?>" method="post">
                 <div class="form-group">
                     <label for="current_password">Current Password</label>
