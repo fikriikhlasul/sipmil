@@ -14,12 +14,12 @@
                 <input type="hidden" name="id" value="<?= $accreq['id']; ?>">
                  <div class="form-group">
                     <label for="no_polisi"><strong>No Polisi</strong></label>
-                    <input type="text" class="form-control" id="no_polisi" name="no_polisi" value="<?= $accreq['no_polisi']; ?>">
+                    <input type="text" class="form-control" id="no_polisi" name="no_polisi" placeholder="No Polisi">
                     <?= form_error('no_polisi', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                  <div class="form-group">
                     <label for="nama_supir"><strong>Nama Supir</strong></label>
-                    <input type="text" class="form-control" id="nama_supir" name="nama_supir" value="<?= $accreq['nama_supir']; ?>">
+                    <input type="text" class="form-control" id="nama_supir" name="nama_supir" placeholder="Nama Supir">
                     <?= form_error('nama_supir', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="form-group">

@@ -1,7 +1,4 @@
-<?php 
-$this->load->model('Invoice_model');
-$jml_invoice =$this->Invoice_model->total_rows();
- ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

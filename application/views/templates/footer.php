@@ -65,6 +65,18 @@
                      ] 
                     });
                 } );
+                  $(document).ready( function () {
+                    $('#inbox').DataTable( {
+                        "processing":true,
+                        // "serverSide":true,
+                        "scrollY":'250px',
+                        dom: 'Bfrtip',
+                         buttons: [
+                        'copy','csv', 'pdf'
+
+                     ] 
+                    });
+                } );
              </script>
              <script type="text/javascript">
                  $(document).ready( function () {

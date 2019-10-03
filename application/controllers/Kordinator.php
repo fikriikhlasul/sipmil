@@ -26,7 +26,7 @@ class Kordinator extends CI_Controller
             $this->load->view('templates/footer');
         } 
     }
-   public function accreq()
+   public function accreq($id)
     {
         $data['title'] = 'Request Transportation';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -50,10 +50,10 @@ class Kordinator extends CI_Controller
                 'no_polisi' => $this->input->post('no_polisi'),
                 'nama_supir' => $this->input->post('nama_supir')
             ];
-            $this->db->where('id', $this->input->post('id'));
+            $this->db->where('id',$id);
              $this->db->update('user_req_transport', $data);
             $this->session->set_flashdata('flash', 'Request Changed!');
-            redirect('user/reqtransport');
+            redirect('kordinator',$id);
         }
     }
     public function rejectreq($id)
@@ -64,7 +64,7 @@ class Kordinator extends CI_Controller
             $this->db->where('id', $id);
             $this->db->update('user_req_transport');
         $this->session->set_flashdata('flash', 'You Rejected The User Request!');
-        redirect('kordinator').$id;
+        redirect('kordinator',$id);
     }
 
     public function detailreq($id)

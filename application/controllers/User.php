@@ -9,10 +9,13 @@ class User extends CI_Controller
         is_logged_in();
     }
 
+
     public function index()
     {
         $data['title'] = 'My Profile';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+         // $this->load->model('Invoice_model', 'uid');
+         // $data['invoice'] = $this->uid->getNotif();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -215,7 +218,48 @@ class User extends CI_Controller
             redirect('user');
         }
     }
+    public function inbox()
+    {
+        $data['title'] = 'Inbox';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        
+        $data['req'] = $this->db->get_where('user_req_transport', ['user_email' =>  $this->session->userdata('email')])->result_array();
+       
 
+        // $this->form_validation->set_rules('nama_req', 'Nama', 'required');
+        // $this->form_validation->set_rules('jenis_trans', 'Jenis Transportasi', 'required');
+        // $this->form_validation->set_rules('tujuan_trans', 'Tujuan Transportasi', 'required');
+        // $this->form_validation->set_rules('keperluan_trans', 'Keperluan Transportasi', 'required');
+        // $this->form_validation->set_rules('req_dari', 'Dari', 'required');
+        // $this->form_validation->set_rules('req_ke', 'Ke', 'required');
+        // $this->form_validation->set_rules('tanggal_pinjam', 'Tanggal Pinjam', 'required');
+        // $this->form_validation->set_rules('jam_pinjam', 'Jam Pinjam', 'required');
+        // $this->form_validation->set_rules('tanggal_kembali', 'Tanggal Kembali', 'required');
+        // $this->form_validation->set_rules('jam_kembali', 'Jam Kembali', 'required');
+        // $this->form_validation->set_rules('kode_proyek', 'Kode Proyek', 'required');
+
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('user/inbox', $data);
+            $this->load->view('templates/footer');
+        }
+        
+    }
+
+
+    public function print($id)
+    {
+        
+
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+       $data['data'] = $this->db->get_where('user_req_transport', ['id' =>  $id])->row_array();
+       
+        
+        $this->load->view('user/printreport',$data);
+    }
 
     public function changePassword()
     {
