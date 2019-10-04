@@ -14,7 +14,7 @@
   <form>
     <table align="center" border="0">
       <tr>
-        <td rowspan="5"><img src="<?= base_url(); ?>assets/img/si/si.png" alt="Logo Surat" width="110" height="110"></td>
+        <td rowspan="5"><img src="<?= base_url(); ?>assets/img/si/si.png" alt="Logo Surat" width="50" height="50"></td>
       </tr>
       <tr>
         <td><font face="Times New Roman" size="5"><center>PT.Surveyor Indonesia</center></font></td>
