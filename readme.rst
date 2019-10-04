@@ -15,7 +15,7 @@ Terimakasih Kepada `Sandhika Galih <https://http://youtube.com/webprogrammingunp
 
 dan semuanya yang tidak bisa saya sebutkan,saya ucapkan terimakasih sebesar besarnya atas bantuannya dalam memberikan knowladge kepada saya.Semoga apa yang telah diberikan menjadi amal,amin ya rabbal alamin.
 
-Dan jangan lupa `download anime <https://http://kiminime.com>`_ di situs saya ya :D
+Dan jangan lupa `download anime <https://kiminime.com>`_ di situs saya ya :D
 
 
 *******************
