@@ -7,7 +7,7 @@ Aplikasi ini di develop menggunakan framework Codeigniter.Aplikasi ini dibuat se
 *******************
 Thank You -Note
 *******************
-Terimakasih yang sebesar besarnya saya haturkan Kepada Bapak Romi Chandra yang telah memberikan saya pelajaran dan ilmu selama magang di Ptsi.
+Terimakasih yang sebesar besarnya saya haturkan Kepada Bapak Romi Chandra yang telah memberikan saya pelajaran dan ilmu serta berbagi pengalaman selama saya magang atau kerja di Ptsi.
 Terimakasih Kepada `Stackoverflow <https://http://stackoverflow.com>`_
 Terimakasih Kepada `Google <https://http://google.com>`_
 Terimakasih Kepada `Sandhika Galih <https://http://youtube.com/webprogrammingunpas>`_
