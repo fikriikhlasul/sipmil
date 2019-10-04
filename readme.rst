@@ -2,13 +2,13 @@
 Apa Itu Sipmil
 ###################
 Sipmil adalah sebuah aplikasi atau sistem informasi berbasis web,yang telah dikerjakan selama sebulan lebih oleh Vkree.
-Aplikasi ini di develop menggunakan framework Codeigniter.Aplikasi ini dibuat sebagai projek magang yang diberikan oleh Bapak Romi Chandra dari `PT.Surveyor Indonesia Cabang Pekanbaru <https://http://stackoverflow.com>`_
+Aplikasi ini di develop menggunakan framework Codeigniter.Aplikasi ini dibuat sebagai projek magang yang diberikan oleh Bapak Romi Chandra dari `PT.Surveyor Indonesia Cabang Pekanbaru <https://www.ptsi.co.id>`_
 
 *******************
 Thank You -Note
 *******************
 Terimakasih yang sebesar besarnya saya haturkan Kepada Bapak Romi Chandra yang telah memberikan saya pelajaran dan ilmu serta berbagi pengalaman selama saya magang atau kerja di Ptsi.
-Terimakasih Kepada `Stackoverflow <https://http://stackoverflow.com>`_
+Terimakasih Kepada `Stackoverflow <https://stackoverflow.com/>`_
 Terimakasih Kepada `Google <https://http://google.com>`_
 Terimakasih Kepada `Sandhika Galih <https://http://youtube.com/webprogrammingunpas>`_
 
