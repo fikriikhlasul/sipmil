@@ -50,13 +50,16 @@ class Auth extends CI_Controller
                     $this->session->set_userdata($data);
                     if ($user['role_id'] == 1) {
                         redirect('admin');
-                    } else {
+                    } elseif ($user['role_id'] == 2) {
                         redirect('user');
+                    } elseif ($user['role_id'] == 3) {
+                        redirect('kordinator');
                     }
-                } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
+                    else {
+                         $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
                     redirect('auth');
-                }
+                    }
+                } 
             } 
                 else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered!</div>');
