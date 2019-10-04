@@ -25,8 +25,8 @@ Xampp v7.3
 ************
 Installation
 ************
-1.import file database bernama sipmil.sql yang ada didalam folder sipmil-master ke phpmyadmin
-2.ubah nama folder sipmil-master menjadi sipmil
+-  1.import file database bernama sipmil.sql yang ada didalam folder sipmil-master ke phpmyadmin
+-  2.ubah nama folder sipmil-master menjadi sipmil
 
 *********
 Resources
