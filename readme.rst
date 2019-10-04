@@ -1,7 +1,7 @@
 ###################
 Apa Itu Sipmil
 ###################
-Sipmil adalah sebuah aplikasi atau sistem informasi berbasis web,yang telah dikerjakan selama sebulan lebih oleh Vkree.
+Sipmil adalah sebuah aplikasi atau sistem informasi peminjaman atau pengajuan transportasi kantor berbasis web,yang telah dikerjakan selama sebulan lebih oleh Vkree.
 Aplikasi ini di develop menggunakan framework Codeigniter.Aplikasi ini dibuat sebagai projek magang yang diberikan oleh Bapak Romi Chandra dari `PT.Surveyor Indonesia Cabang Pekanbaru <https://www.ptsi.co.id>`_
 
 *******************
