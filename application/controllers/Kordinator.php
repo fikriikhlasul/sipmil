@@ -85,4 +85,16 @@ class Kordinator extends CI_Controller
             $this->load->view('templates/footer');
         } 
     }
+    public function daily()
+    {
+        $tgl    =date("Y-m-d");
+
+
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['data'] = $this->db->get_where('user_req_transport', ['tanggal_pinjam' =>  $tgl])->result_array();
+       
+        
+        $this->load->view('kordinator/daily',$data);
+    }
+
 }

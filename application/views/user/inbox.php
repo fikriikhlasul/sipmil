@@ -31,6 +31,7 @@
                <thead>
                     <tr>
                         <th scope="col" style="text-align: center;">No</th>
+                        <th scope="col" style="text-align: center;">No Transaksi</th>
                         <th scope="col" style="text-align: center;">Nama</th>
                         <th scope="col" style="text-align: center;">Jenis Trans</th>
                         <th scope="col" style="text-align: center;">Tujuan</th>
@@ -51,6 +52,7 @@
                                        <?php foreach ($req as $r) : ?>
                     <tr>
                         <th scope="row" style="text-align: center;"><?= $i; ?></th>
+                        <td style="text-align: center;">TRX<?= $r['id']; ?></td>
                         <td style="text-align: center;"><?= $r['nama_req']; ?></td>
                         <td style="text-align: center;"><?= $r['jenis_trans']; ?></td>
                         <td style="text-align: center;"><?= $r['tujuan_trans']; ?></td>
