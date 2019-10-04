@@ -37,7 +37,7 @@ Installation
 ************
 -  1.import file database bernama sipmil.sql yang ada didalam folder sipmil-master ke phpmyadmin
 -  2.ubah nama folder sipmil-master menjadi sipmil
--  3. Buka text editor lalu ubah nama file htaccess.txt menjadi .htaccess
+-  3.Buka text editor lalu ubah nama file htaccess.txt menjadi .htaccess
 
 ************
 Login Credential
