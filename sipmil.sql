@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 04, 2019 at 01:48 AM
+-- Generation Time: Oct 04, 2019 at 05:17 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -68,7 +68,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `bagian`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (1, 'admin', 'Admin', 'admin@gmail.com', 'One-Piece-Episode-904-Kiminime.jpg', '$2y$10$hYF12POHVaiEF3uaOeMYNuuHXAaQTAkxhd4q5gH.ZIytzgTfUHaeO', 1, 1, 1569783602),
-(13, 'fikri', 'Kasum', 'fikri@gmail.com', 'default.jpg', '$2y$10$l1b/i31CRpGh8IyxF4jcoesjzdWSVH8hr/e/ixgVWqp9I32zOkcMS', 2, 1, 1569919522);
+(13, 'fikri', 'Kasum', 'fikri@gmail.com', 'default.jpg', '$2y$10$l1b/i31CRpGh8IyxF4jcoesjzdWSVH8hr/e/ixgVWqp9I32zOkcMS', 2, 1, 1569919522),
+(16, 'kordinator', 'Kasum', 'kordinator@gmail.com', 'default.jpg', '$2y$10$UDkiB5J4EbFJQOV358GQzeUlzorm1TwQHOcxK8HCJKLWhuguxxFWO', 3, 1, 1570153562);
 
 -- --------------------------------------------------------
 
@@ -92,9 +93,11 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (8, 1, 2),
 (10, 8, 10),
 (12, 1, 10),
-(15, 8, 11),
 (20, 1, 3),
-(23, 1, 11);
+(23, 1, 11),
+(24, 8, 11),
+(25, 8, 2),
+(27, 3, 11);
 
 -- --------------------------------------------------------
 
@@ -170,7 +173,9 @@ INSERT INTO `user_req_transport` (`id`, `user_id`, `user_email`, `nama_req`, `je
 (10, 1, 'admin@gmail.com', 'admin', 'Kendaraan Lain', 'Dalam Kota', 'Buy Product', 'Kantor', 'Toko', '2019-12-31', '06:00:00', '2019-12-31', '12:59:00', 'KANTOK12', 'Waiting Approval', 1570069324, 'blue', '', ''),
 (11, 13, 'fikri@gmail.com', 'fikri', 'Taksi', 'Dalam Kota', 'Servicing Product', 'Pekanbaru', 'Medan', '2019-12-31', '12:59:00', '2019-12-31', '16:59:00', 'MDNPKU23', 'Waiting Approval', 1570070984, 'blue', '', ''),
 (12, 1, 'admin@gmail.com', 'admin', 'Mobil', 'Luar Kota', 'Servicing Product', 'Pekanbaru', 'Medan', '2019-12-31', '12:59:00', '2019-12-31', '12:59:00', 'MDNPKU23', 'Waiting Approval', 1570072545, 'blue', '', ''),
-(15, 1, 'admin@gmail.com', 'admin', 'Taksi', 'Dalam Kota', 'Servicing Product', 'Pekanbaru', 'Medan', '2019-12-31', '12:59:00', '2019-12-31', '12:59:00', 'MDNPKU23', 'Waiting Approval', 1570089041, 'blue', '', '');
+(15, 1, 'admin@gmail.com', 'admin', 'Taksi', 'Dalam Kota', 'Servicing Product', 'Pekanbaru', 'Medan', '2019-12-31', '12:59:00', '2019-12-31', '12:59:00', 'MDNPKU23', 'Waiting Approval', 1570089041, 'blue', '', ''),
+(16, 1, 'admin@gmail.com', 'admin', 'Taksi', 'Dalam Kota', 'Servicing Computer', 'Pekanbaru', 'Toko', '2019-10-04', '12:59:00', '2019-10-04', '14:59:00', 'GAMING23', 'Waiting Approval', 1570150659, 'blue', '', ''),
+(17, 1, 'admin@gmail.com', 'admin', 'Taksi', 'Dalam Kota', 'Gaming Good', 'Kantor', 'Toko', '2019-10-04', '12:59:00', '2019-10-04', '14:59:00', 'GGWP12', 'Waiting Approval', 1570150716, 'blue', '', '');
 
 -- --------------------------------------------------------
 
@@ -190,7 +195,7 @@ CREATE TABLE `user_role` (
 INSERT INTO `user_role` (`id`, `role`) VALUES
 (1, 'Administrator'),
 (2, 'User'),
-(8, 'Kordinator');
+(3, 'Kordinator');
 
 -- --------------------------------------------------------
 
@@ -220,11 +225,14 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (7, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 'Active'),
 (8, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 'Active'),
 (11, 2, 'Request Transportation', 'user/reqtransport', 'fas fa-car', 'Active'),
-(13, 10, 'List User Request', 'kordinator', 'fas fa-user-secret', 'Active'),
+(12, 11, 'My Profile', 'kordinator/myprofile', 'fas fa-user-secret', 'Active'),
 (14, 10, 'Report', 'kordinator/report', 'far fa-chart-bar', 'Active'),
+(15, 11, 'Edit Profile', 'kordinator/editprofile', 'fas fa-fw fa-user-edit', 'Active'),
+(16, 11, 'Change Password', 'kordinator/changepassword', 'fas fa-key', 'Active'),
 (17, 11, 'User Request List', 'kordinator', 'fas fa-list', 'Active'),
-(21, 11, 'Daily Report', 'kordinator/daily', 'fas fa-newspaper', 'Active'),
-(23, 2, 'Inbox', 'user/inbox', 'fas fa-envelope', 'Active');
+(23, 2, 'Inbox', 'user/inbox', 'fas fa-envelope', 'Active'),
+(24, 11, 'Custom Report By Range', 'kordinator/customreport', 'fas fa-chart-bar', 'Nonactive'),
+(29, 11, 'Today\'s Report', 'kordinator/daily', 'fas fa-newspaper', 'Active');
 
 -- --------------------------------------------------------
 
@@ -305,13 +313,13 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user_kordinator_car`
@@ -329,7 +337,7 @@ ALTER TABLE `user_menu`
 -- AUTO_INCREMENT for table `user_req_transport`
 --
 ALTER TABLE `user_req_transport`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -341,7 +349,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=318;
 
 --
 -- AUTO_INCREMENT for table `user_token`
