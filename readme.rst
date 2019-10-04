@@ -5,12 +5,13 @@ Sipmil adalah sebuah aplikasi atau sistem informasi berbasis web,yang telah dike
 Aplikasi ini di develop menggunakan framework Codeigniter.Aplikasi ini dibuat sebagai projek magang yang diberikan oleh Bapak Romi Chandra dari `PT.Surveyor Indonesia Cabang Pekanbaru <https://www.ptsi.co.id>`_
 
 *******************
-Thank You -Note
+Thank You
 *******************
 Terimakasih yang sebesar besarnya saya haturkan Kepada Bapak Romi Chandra yang telah memberikan saya pelajaran dan ilmu serta berbagi pengalaman selama saya magang atau kerja di Ptsi.
-- Terimakasih Kepada `Stackoverflow <https://stackoverflow.com/>`_
-- Terimakasih Kepada `Google <https://google.com>`_
-- Terimakasih Kepada `Sandhika Galih <https://youtube.com/webprogrammingunpas>`_
+
+-  Terimakasih Kepada `Stackoverflow <https://stackoverflow.com/>`_
+-  Terimakasih Kepada `Google <https://google.com>`_
+-  Terimakasih Kepada `Sandhika Galih <https://youtube.com/webprogrammingunpas>`_
 
 dan semuanya yang tidak bisa saya sebutkan,saya ucapkan terimakasih sebesar besarnya atas bantuannya dalam memberikan knowladge kepada saya.Semoga apa yang telah diberikan menjadi amal,amin ya rabbal alamin.
 
