@@ -1,19 +1,21 @@
 ###################
 Apa Itu Sipmil
 ###################
-Sipmil adalah sebuah aplikasi atau sistem informasi berbasis web,yang telah dikerjakan selama sebulan lebih oleh Vkree.
-Aplikasi ini di develop menggunakan framework Codeigniter.Aplikasi ini dibuat sebagai projek magang yang diberikan oleh Bapak Romi Chandra dari `PT Surveyor Indonesia
-<https://www.ptsi.co.id>`
+Sipmil adalah sebuah aplikasi atau sistem informasi peminjaman atau pengajuan transportasi kantor berbasis web,yang telah dikerjakan selama sebulan lebih oleh Vkree.
+Aplikasi ini di develop menggunakan framework Codeigniter.Aplikasi ini dibuat sebagai projek magang yang diberikan oleh Bapak Romi Chandra dari `PT.Surveyor Indonesia Cabang Pekanbaru <https://www.ptsi.co.id>`_
 
 *******************
-Thank You -Note
+Thank You
 *******************
-Terimakasih yang sebesar besarnya saya haturkan Kepada Bapak Romi Chandra yang telah memberikan saya pelajaran dan ilmu selama magang di Ptsi.
-Terimakasih Kepada `Stackoverflow <https://http://stackoverflow.com>`_
-Terimakasih Kepada `Google <https://http://google.com>`_
-Terimakasih Kepada `Sandhika Galih <https://http://youtube.com/webprogrammingunpas>`_
+Terimakasih yang sebesar besarnya saya haturkan Kepada Bapak Romi Chandra yang telah memberikan saya pelajaran dan ilmu serta berbagi pengalaman selama saya magang atau kerja di Ptsi.
+
+-  Terimakasih Kepada `Stackoverflow <https://stackoverflow.com/>`_
+-  Terimakasih Kepada `Google <https://google.com>`_
+-  Terimakasih Kepada `Sandhika Galih <https://youtube.com/webprogrammingunpas>`_
 
 dan semuanya yang tidak bisa saya sebutkan,saya ucapkan terimakasih sebesar besarnya atas bantuannya dalam memberikan knowladge kepada saya.Semoga apa yang telah diberikan menjadi amal,amin ya rabbal alamin.
+
+Dan jangan lupa `download anime <https://kiminime.com>`_ di situs saya ya :D
 
 
 *******************
@@ -37,7 +39,7 @@ Installation
 ************
 -  1.import file database bernama sipmil.sql yang ada didalam folder sipmil-master ke phpmyadmin
 -  2.ubah nama folder sipmil-master menjadi sipmil
--  3. Buka text editor lalu ubah nama file htaccess.txt menjadi .htaccess
+-  3.Buka text editor lalu ubah nama file x.htaccess menjadi .htaccess (hapus x nya,biarkan cuma .htaccess)
 
 ************
 Login Credential
